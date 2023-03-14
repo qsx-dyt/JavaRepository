@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.post.postprovider.mapper.PostMapper">
+    <insert id="PostAdd">
+            insert post_info(postId,postName,postType) values(#{postId},#{postName},#{postType})
+    </insert>
+    <insert id="UserRegister">
+        insert into user(userName,userPwd) values(#{userName},#{userPwd})
+    </insert>
+    <update id="PostEdit">
+        update post_info set postName=#{postName},postType=#{postType} where postId=#{postId}
+    </update>
+    <delete id="PostDelete">
+        delete from post_info where postId=#{postId} and
+                                    not exists(select * from staff_add where postId=#{postId})
+    </delete>
+    <select id="PostSearch" resultType="com.hrms.common.dto.PostDto">
+        select * from post_info
+        <where>
+            <if test="postId != null and postId != ''">
+                and postId =#{postId}
+            </if>
+            <if test="postName != null and postName != ''">
+                and postName like concat('%',#{postName},'%')
+            </if>
+            <if test="postType != null and postType != ''">
+                and postType=#{postType}
+            </if>
+        </where>
+    </select>
+    <select id="ShowPostStaff" resultType="com.hrms.common.dto.PostDto">
+        select * from post_info inner join staff_add on post_info.postId=staff_add.postId
+    </select>
+    <select id="UserLogin" resultType="com.hrms.common.dto.PostDto">
+        select userPwd from user where userName=#{userName}
+    </select>
+    <select id="UserSearch" resultType="com.hrms.common.dto.PostDto">
+        select * from user where userName=#{userName}
+    </select>
+
+</mapper>

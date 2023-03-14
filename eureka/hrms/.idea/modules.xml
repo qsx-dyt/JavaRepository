@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hrms.iml" filepath="$PROJECT_DIR$/hrms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/postconsumer/postconsumer.iml" filepath="$PROJECT_DIR$/postconsumer/postconsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/postprovider/postprovider.iml" filepath="$PROJECT_DIR$/postprovider/postprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/postserver/postserver.iml" filepath="$PROJECT_DIR$/postserver/postserver.iml" />
+    </modules>
+  </component>
+</project>
